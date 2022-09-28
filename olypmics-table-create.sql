@@ -4,6 +4,7 @@
 -- Olympic Database
 
 CREATE TABLE "athlete_events" (
+    "id" SERIAL PRIMARY KEY,
     "athlete_id" INT   NOT NULL,
     "name" VARCHAR   NOT NULL,
     "sex" VARCHAR   NOT NULL,

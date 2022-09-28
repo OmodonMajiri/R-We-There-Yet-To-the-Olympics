@@ -11,14 +11,16 @@ from flask import Flask, jsonify
 #################################################
 # Database Setup
 #################################################
-engine = create_engine('postgresql://postgres:Buster0$@localhost/olympicDB')
+engine = create_engine("postgresql://postgres:password@localhost/olympics")
 # reflect an existing database into a new model
 Base = automap_base()
 # reflect the tables
 Base.prepare(engine, reflect=True)
 
+print(Base.classes.keys())
 # Save reference to the table
 Athlete = Base.classes.athlete_events
+
 
 #################################################
 # Flask Setup
@@ -34,6 +36,7 @@ app = Flask(__name__)
 def welcome():
     return (
         f"/api/v1.0/athlete"
+        
     )
 
 @app.route("/api/v1.0/athlete")
@@ -41,12 +44,12 @@ def athlete():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    """Return a list of passenger data including the name, age, and sex of each passenger"""
+    #Return a list of passenger data including the name, age, and sex of each passenger
     # Query all passengers
     results = session.query(Athlete.athlete_id, Athlete.name, Athlete.age, Athlete.sex, 
     Athlete.height, Athlete.weight, Athlete.team, Athlete.noc, Athlete.games, 
-    Athlete.year, Athlete.season, Athlete.city, Athlete.sport, 
-    Athlete.event, Athlete.medal, Athlete.lat, Athlete.lng).all()
+    Athlete.year, Athlete.season, Athlete.city, Athlete.sport, Athlete.event, 
+    Athlete.medal, Athlete.lat, Athlete.lng, Athlete.noc_country, Athlete.country_lat, Athlete.country_long).all()
 
     session.close()
 
@@ -75,7 +78,7 @@ def athlete():
         athletes_dict["country_lat"] = country_lat
         athletes_dict["country_long"] = country_long
         all_athletes.append(athletes_dict)
-    return jsonify(all_athletes)
+    return jsonify(all_athletes[0])
 
 
 if __name__ == '__main__':
