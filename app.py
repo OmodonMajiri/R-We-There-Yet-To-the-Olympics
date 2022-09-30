@@ -1,17 +1,13 @@
-import numpy as np
-
-import sqlalchemy
-#import psycopg2
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request, render_template
 
 #################################################
 # Database Setup
 #################################################
-engine = create_engine("postgresql://postgres:sqladmin@localhost/olympics")
+engine = create_engine("postgresql://postgres:Buster0$@localhost/olympicDB")
 # reflect an existing database into a new model
 Base = automap_base()
 # reflect the tables
@@ -34,10 +30,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def welcome():
-    return (
-        f"/api/v1.0/athlete"
-        
-    )
+    return render_template('index.html')
 
 @app.route("/api/v1.0/athlete")
 def athlete():
@@ -51,9 +44,6 @@ def athlete():
     Athlete.year, Athlete.season, Athlete.city, Athlete.sport, Athlete.event, 
     Athlete.medal, Athlete.lat, Athlete.lng, Athlete.noc_country, Athlete.country_lat, Athlete.country_long).all()
 
-    session.close()
-
-    # Create a dictionary from the row data and append to a list of all_passengers
     all_athletes = []
     for id, name, age, sex, height, weight, team, noc, games, year, season, city, sport, event, medal, lat, lng, noc_country, country_lat, country_long in results:
         athletes_dict = {}
@@ -78,8 +68,7 @@ def athlete():
         athletes_dict["country_lat"] = country_lat
         athletes_dict["country_long"] = country_long
         all_athletes.append(athletes_dict)
-    return jsonify(all_athletes[0])
-
+    return jsonify(all_athletes)
 
 if __name__ == '__main__':
     app.run(debug=True)
