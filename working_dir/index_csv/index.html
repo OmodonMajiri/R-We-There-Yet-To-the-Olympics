@@ -30,8 +30,8 @@
 
   // Set up initial map center and zoom level
   var map = L.map('map', {
-    center: [0, 0], // EDIT latitude, longitude to re-center map
-    zoom: 4.5,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
+    center: [45, 15], // EDIT latitude, longitude to re-center map
+    zoom: 1.25,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
     scrollWheelZoom: true,
     tap: false
   });
@@ -69,7 +69,7 @@
 
       var marker = L.marker([row.host_city_lat, row.host_city_lng], {
         opacity: 1
-      }).bindPopup(row.Title);
+      }).bindPopup(row.games);
       
       marker.addTo(map);
     }
