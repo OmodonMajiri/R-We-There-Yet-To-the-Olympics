@@ -47,7 +47,7 @@
                   <li><a href="visualizations/wind.html">Wind Speed</a></li> -->
                 </ul>
               </li>
-              <li><a href="comparison.html">Graph</a></li>
+              <li><a href="comparison.html">Sources</a></li>
               <li><a href="tableData.html">Data</a></li>
               <li><a href="">Home</a></li>
             </ul>
@@ -160,22 +160,33 @@
         </div>
         <!-- left side end -->
         <!-- rigth side -->
-        <div class="col-md-4">
+        <div class="col-md-6">
         <section id="imageNav-area">
-         
-          <br>
           <h2 class="imageNav-header">Visualizations</h2>
-          <hr>
-          <div class='row'>
-            
-      
+          <div class="row">
+            <div class="col-sml-6">
+              <div class="well">
+                <h5>Choose the Olympic Games by Year:</h5>
+                <select id="selDataset" onchange="optionChanged(this.value)"></select>
+              </div>
+            </div>
           </div>
-          
-         </div>
-
         </section>
         <!-- end of rigth side -->
       </div>
+      <br>
+      <div class="col-md-12">
+        <section id="imageNav-area">
+          <h2 class="imageNav-header">Display Total Medal Count by County (per year selected above)</h2>
+          <div class="row">
+            <div class="col-sml-6">
+              <div class="well">
+                <h5>table of Countries and medal count (bar chart?) :</h5>
+              </div>
+            </div>
+          </div>
+        </section>
+
     </section>
     </div>
   
