@@ -30,7 +30,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def welcome():
-    return render_template('indextest.html')
+    return render_template('index.html')
 
 @app.route("/api/v1.0/athlete")
 def athlete():
