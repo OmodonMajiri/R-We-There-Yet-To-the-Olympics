@@ -128,7 +128,7 @@
               // see more basemap options at https://leaflet-extras.github.io/leaflet-providers/preview/
             
               // Read markers data from data.csv
-              $.get('index_csv/host.csv', function(csvString) {
+              $.get('static/csv/host.csv', function(csvString) {
             
                 // Use PapaParse to convert string to array of objects
                 var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
@@ -140,7 +140,7 @@
             
                   var marker = L.marker([row.host_city_lat, row.host_city_lng], {
                     opacity: 1
-                  }).bindPopup(row.games, row.city);
+                  }).bindPopup(row.games);
                   
                   marker.addTo(map);
                 }
@@ -161,22 +161,39 @@
         </article>
         </div>
         <!-- left side end -->
+                
         <!-- rigth side -->
         <div class="col-md-4">
-        <section id="imageNav-area">
-         
-          <br>
-          <h2 class="imageNav-header">Visualizations</h2>
-          <hr>
-          <div class='row'>
-            
-      
-          </div>
-          
-         </div>
-
-        </section>
-        <!-- end of rigth side -->
+          <section id="imageNav-area">
+            <h2 class="imageNav-header">Visualizations</h2>
+            <div class="row">
+              <div class="col-sml-6">
+                <div class="well">
+                  <h5>Choose the Olympic Games by Year:</h5>
+                  <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- end of rigth side -->
+        </div>
+        <br>
+        <div class="col-md-12">
+          <section id="imageNav-area">
+            <h2 class="imageNav-header">Display Total Medal Count by County (per year selected above)</h2>
+            <div class="row">
+              <div class="col-sml-6">
+                <div class="well">
+                  <h5>table of Countries and medal count (bar chart?) :</h5>
+                </div>
+              </div>
+            </div>
+          </section>
+  
+      </section>
+      </div>
+    
+      <!-- End of container -->
       </div>
     </section>
     </div>
@@ -199,5 +216,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script type="text/javascript" src="static/js/logic.js"></script>
+    <script type="text/selDataset" src="static/js/apptest.js"></script>
 </body>
 </html>
