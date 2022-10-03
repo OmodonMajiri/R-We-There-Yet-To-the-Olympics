@@ -6,7 +6,7 @@ function initialize()
     var select = d3.select("#selDataset"); 
 
     d3.json("/api/v1.0/athlete").then((data) => {
-        let eventNames = data.event //array of events 
+        let eventNames = data.games //array of events 
         console.log(eventNames);
        
         //use a for each to create options 
