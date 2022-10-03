@@ -70,6 +70,14 @@ def athlete():
         all_athletes.append(athletes_dict)
     return jsonify(all_athletes)
 
+@app.route("/api/v1.0/years")
+def years():
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+    results = session.query(Athlete.year).distinct()
+    years = [r.year for r in results.order_by(Athlete.year)]
+    return jsonify(years) 
+
 if __name__ == '__main__':
     app.run(debug=True)
 
