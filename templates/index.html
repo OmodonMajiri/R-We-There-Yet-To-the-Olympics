@@ -31,7 +31,7 @@
               <span class="icon-bar"></span>
             </button>
             <div class="col-xs-9 phone-nav">
-              <a class="navbar-brand" href="#" id="logo">Olympics</a>
+              <a class="navbar-brand" href="#" id="logo">Olympic Games Data</a>
             </div>
           </div>
 
@@ -39,17 +39,15 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right navbar-right-custom">
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Facts <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                 <!-- <li><a href="visualizations/temp.html">Max Temperature</a></li>
-                  <li><a href="visualizations/humidity.html">Humidity</a></li>
-                  <li><a href="visualizations/cloudiness.html">Cloudiness</a></li>
-                  <li><a href="visualizations/wind.html">Wind Speed</a></li> -->
-                </ul>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Sources <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results">120 Years of Complete Olympic History</a></li>
+                    <li><a href="https://www.kaggle.com/datasets/jonscheaffer/olympic-host-cities">Olympic Host Cities</a></li>
+                   </ul>
               </li>
-              <li><a href="comparison.html">Graph</a></li>
+              <li><a href="funfacts.html">Fun Facts</a></li>
               <li><a href="tableData.html">Data</a></li>
-              <li><a href="">Home</a></li>
+              <li><a href="index.html">Home</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div>
@@ -140,7 +138,7 @@
             
                   var marker = L.marker([row.host_city_lat, row.host_city_lng], {
                     opacity: 1
-                  }).bindPopup(row.games);
+                  }).bindPopup(`<h5>${row.games} : ${row.city} </h5>`);
                   
                   marker.addTo(map);
                 }
