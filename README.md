@@ -44,11 +44,10 @@
 
 ### Technologies used to build the Olympics Webpage:
 ```
-- App Back-End: Python Flask | SQLAlchemy
 - Database: MySQL 
 - Data Visualization: Javascript | Plotly.js | D3.js 
 - Front-End: HTML | Bootstrap | CSS
-- Web-Scraping: Requests
+- Back-End: Python Flask | SQLAlchemy
 ```
 ## Our Inspiration
 <p>To help inspire our creative fodder, we referenced some visualizations that would help with the roadmap of how we wanted our project to flow. Here are some of the visualizations we found to guide in the process:</p>
