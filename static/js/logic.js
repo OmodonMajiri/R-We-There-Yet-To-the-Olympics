@@ -1,3 +1,5 @@
+// Dropdown menu function for selection 
+d3.selectAll("#selDataset").on("change", selection)
 
 // initialize dashboard
 function initialize(){
@@ -22,4 +24,4 @@ initialize();
 
 // function populatets meta-data 
 
-// build the graph 
+// build the graph

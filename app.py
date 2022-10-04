@@ -78,6 +78,85 @@ def years():
     years = [r.year for r in results.order_by(Athlete.year)]
     return jsonify(years) 
 
+@app.route("/api/v1.0/olympic/<year>")
+def olympic_year(year):
+# Create our session (link) from Python to the DB
+    session = Session(engine)
+    results = session.query(Athlete.athlete_id, Athlete.name, Athlete.age, Athlete.sex,
+    Athlete.height, Athlete.weight, Athlete.team, Athlete.noc, Athlete.games,
+    Athlete.year, Athlete.season, Athlete.city, Athlete.sport, Athlete.event,
+    Athlete.medal, Athlete.lat, Athlete.lng, Athlete.noc_country, Athlete.country_lat, Athlete.country_long).filter(Athlete.year == year)
+    
+    all_athletes = []
+    for id, name, age, sex, height, weight, team, noc, games, year, season, city, sport, event, medal, lat, lng, noc_country, country_lat, country_long in results:
+        athletes_dict = {}
+        athletes_dict["id"] = id
+        athletes_dict["name"] = name
+        athletes_dict["age"] = age
+        athletes_dict["sex"] = sex
+        athletes_dict["height"] = height
+        athletes_dict["weight"] = weight
+        athletes_dict["team"] = team
+        athletes_dict["noc"] = noc
+        athletes_dict["games"] = games
+        athletes_dict["year"] = year
+        athletes_dict["season"] = season
+        athletes_dict["city"] = city
+        athletes_dict["sport"] = sport
+        athletes_dict["event"] = event
+        athletes_dict["medal"] = medal
+        athletes_dict["lat"] = lat
+        athletes_dict["lng"] = lng
+        athletes_dict["noc_country"] = noc_country
+        athletes_dict["country_lat"] = country_lat
+        athletes_dict["country_long"] = country_long
+        all_athletes.append(athletes_dict)
+    return jsonify(all_athletes)
+
+
+@app.route("/api/v1.0/country/total_medals/<year>")
+def country_medal(year):
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+    results = session.query(Athlete.noc_country, func.count(Athlete.noc_country)).filter(Athlete.year == year).group_by(Athlete.noc_country).all()
+    countries = []
+    for country, medal_count in results:
+        countries_dict = {}
+        countries_dict["country"] = country
+        countries_dict["total_medals"] = medal_count
+        countries.append(countries_dict)
+    return jsonify(countries)   
+
+@app.route("/api/v1.0/athlete/demographic/<year>")
+def athlete_demographic(year):
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+    results = session.query(Athlete.sex, Athlete.age, Athlete.height, Athlete.weight).filter(Athlete.year == year).all()
+    athlete_sex = []
+    for sex, age, height, weight in results:
+        athlete_sex_dict = {}
+        athlete_sex_dict["sex"] = sex
+        athlete_sex_dict["age"] = age
+        athlete_sex_dict["height"] = height
+        athlete_sex_dict["weight"] = weight
+        athlete_sex.append(athlete_sex_dict)
+    return jsonify(athlete_sex)
+
+@app.route("/api/v1.0/athlete/<sex>/demographic/<year>")
+def athlete_sex(sex, year):
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+    results = session.query(Athlete.sex, Athlete.age, Athlete.height, Athlete.weight).filter(Athlete.year == year).filter(Athlete.sex == sex).all()
+    athlete_sex = []
+    for sex, age, height, weight in results:
+        athlete_sex_dict = {}
+        athlete_sex_dict["sex"] = sex
+        athlete_sex_dict["age"] = age
+        athlete_sex_dict["height"] = height
+        athlete_sex_dict["weight"] = weight
+        athlete_sex.append(athlete_sex_dict)
+    return jsonify(athlete_sex)    
+
 if __name__ == '__main__':
     app.run(debug=True)
 
