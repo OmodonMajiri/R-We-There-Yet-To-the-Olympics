@@ -7,7 +7,7 @@ from flask import Flask, jsonify, request, render_template
 # Database Setup
 #################################################
 
-engine = create_engine("postgresql://postgres:password@localhost/olympics")
+engine = create_engine("postgresql://postgres:sqladmin@localhost/olympics")
 
 # reflect an existing database into a new model
 Base = automap_base()

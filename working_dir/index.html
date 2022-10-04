@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <title>R We There Yet To The Olympics</title>
-
     <!-- Boostrap Stylesheet -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen">
-
+    <link rel="stylesheet" href="static/css/bootstrap.min.css" media="screen">
     <!-- Our own CSS stylesheet -->
-    <link rel="stylesheet" href="assets/css/styles.css" media="screen">
-
+    <link rel="stylesheet" href="static/css/styles.css" media="screen">
   </head>
-
   <body>
     <!-- Start of navbar -->
     <nav class="navbar navbar-default">
       <div class="container-fluid navbar-custom">
-
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="row">
           <div class="navbar-header">
@@ -34,7 +27,6 @@
               <a class="navbar-brand" href="#" id="logo">Olympics</a>
             </div>
           </div>
-
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right navbar-right-custom">
@@ -47,7 +39,7 @@
                   <li><a href="visualizations/wind.html">Wind Speed</a></li> -->
                 </ul>
               </li>
-              <li><a href="comparison.html">Sources</a></li>
+              <li><a href="comparison.html">Graph</a></li>
               <li><a href="tableData.html">Data</a></li>
               <li><a href="">Home</a></li>
             </ul>
@@ -56,142 +48,124 @@
       </div><!-- /.container-fluid -->
     </nav>
     <!-- End of navbar -->
-
     <!-- Start of container -->
-    <div class="container">
-      <br>
-      <section class="row">
-        <!-- left side -->
-        <div class="col-md-6 divbdy">
-          <article class="description-content">
-          <br>
-          <h1 class="description-header">Olympic Dashboard</h1>
-          <hr>
-          <!-- <img src="assets/images/Fig1.png" alt="Latitude vs. Temperature" width="280" align="left"> -->
-          <p> We will have to put code to show map </p>
-            <div>
-              <head>
-                <title>leaflet-map-csv</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <meta charset="utf-8">
-              
-                <!-- Load Leaflet code library - see updates at http://leafletjs.com/download.html -->
-                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
-                <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-              
-                <!-- Load jQuery and PapaParse to read data from a CSV file -->
-                <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
-              
-                <!-- Position the map with Cascading Style Sheet (CSS) -->
-                <style>
-                  body { margin:0; padding:0; }
-                  #map { position: absolute; top:0; bottom:0; right:0; left:0; }
-                </style>
-              
-              </head>
-              <body>
-              
-                <!-- Insert HTML division tag to layout the map -->
-                <div id="map"></div>
-              
-                <!-- Insert Javascript (.js) code to create the map -->
-                <script>
-              
-                // Set up initial map center and zoom level
-                var map = L.map('map', {
-                  center: [45, 15], // EDIT latitude, longitude to re-center map
-                  zoom: 1.25,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
-                  scrollWheelZoom: true,
-                  tap: false
-                });
-              
-                /* Control panel to display map layers */
-                var controlLayers = L.control.layers( null, null, {
-                  position: "topright",
-                  collapsed: false
-                }).addTo(map);
-              
-                // display Carto basemap tiles with light features and labels
-                var light = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
-                }).addTo(map); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
-                controlLayers.addBaseLayer(light, 'Light basemap');
-              
-                /* Stamen colored terrain basemap tiles with labels */
-                var terrain = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png', {
-                  attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
-                }); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
-                controlLayers.addBaseLayer(terrain, 'Terrain basemap');
-              
-                // see more basemap options at https://leaflet-extras.github.io/leaflet-providers/preview/
-              
-                // Read markers data from data.csv
-                $.get('index_csv/host.csv', function(csvString) {
-              
-                  // Use PapaParse to convert string to array of objects
-                  var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-              
-                  // For each row in data, create a marker and add it to the map
-                  // For each row, columns `Latitude`, `Longitude`, and `Title` are required
-                  for (var i in data) {
-                    var row = data[i];
-              
-                    var marker = L.marker([row.host_city_lat, row.host_city_lng], {
-                      opacity: 1
-                    }).bindPopup(row.games, row.city);
-                    
-                    marker.addTo(map);
-                  }
-              
-                });
-              
-                map.attributionControl.setPrefix(
-                  'View <a href="https://github.com/HandsOnDataViz/leaflet-map-csv" target="_blank">code on GitHub</a>'
-                );
-              
-                </script>
-
-
-
+      <div class="container">
+        <br>
+        <section class="row">
+          <!-- left side -->
+          <div class="col-md-8 divbdy">
+            <article class="description-content">
+              <br>
+              <h1 class="description-header">Olympic Dashboard</h1>
+              <hr>
+              <!-- <img src="assets/images/Fig1.png" alt="Latitude vs. Temperature" width="280" align="left"> -->
+              <p> We will have to put code to show map </p>
+                <div>
+                  <head>
+                    <title>leaflet-map-csv</title>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <meta charset="utf-8">
+                    <!-- Load Leaflet code library - see updates at http://leafletjs.com/download.html -->
+                    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+                    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+                    <!-- Load jQuery and PapaParse to read data from a CSV file -->
+                    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+                    <!-- Position the map with Cascading Style Sheet (CSS) -->
+                    <style>
+                      body { margin:0; padding:0; }
+                      #map { position: absolute; top:0; bottom:0; right:0; left:0; }
+                    </style>
+                  </head>
+                  <body>
+                    <!-- Insert HTML division tag to layout the map -->
+                    <div id="map"></div>
+                    <!-- Insert Javascript (.js) code to create the map -->
+                    <script>
+                    // Set up initial map center and zoom level
+                    var map = L.map('map', {
+                      center: [45, 15], // EDIT latitude, longitude to re-center map
+                      zoom: 1.25,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
+                      scrollWheelZoom: true,
+                      tap: false
+                    });
+                    /* Control panel to display map layers */
+                    var controlLayers = L.control.layers( null, null, {
+                      position: "topright",
+                      collapsed: false
+                    }).addTo(map);
+                    // display Carto basemap tiles with light features and labels
+                    var light = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
+                    }).addTo(map); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
+                    controlLayers.addBaseLayer(light, 'Light basemap');
+                    /* Stamen colored terrain basemap tiles with labels */
+                    var terrain = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png', {
+                      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+                    }); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
+                    controlLayers.addBaseLayer(terrain, 'Terrain basemap');
+                    // see more basemap options at https://leaflet-extras.github.io/leaflet-providers/preview/
+                    // Read markers data from data.csv
+                    $.get('static/csv/host.csv', function(csvString) {
+                      // Use PapaParse to convert string to array of objects
+                      var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+                      // For each row in data, create a marker and add it to the map
+                      // For each row, columns `Latitude`, `Longitude`, and `Title` are required
+                      for (var i in data) {
+                        var row = data[i];
+                        var marker = L.marker([row.host_city_lat, row.host_city_lng], {
+                          opacity: 1
+                        }).bindPopup(row.games);
+                        marker.addTo(map);
+                      }
+                    });
+                    map.attributionControl.setPrefix(
+                      'View <a href="https://github.com/HandsOnDataViz/leaflet-map-csv" target="_blank">code on GitHub</a>'
+                    );
+                    </script>
+                </div>
+                <hr>
+              </article>
             </div>
-          <hr>
-        </article>
+            <!-- left side end -->
+            <!-- rigth side -->
+            <div class="col-md-4">
+              <section id="imageNav-area">
+                <h2 class="imageNav-header">Visualizations</h2>
+                <div class="row">
+                  <div class="col-sml-6">
+                    <div class="well">
+                      <h5>Choose the Olympic Games by Year:</h5>
+                      <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!-- end of rigth side -->
+            </div>
+              <br>
+              <div class="col-md-12">
+                <section id="imageNav-area">
+                  <h2 class="imageNav-header">Display Total Medal Count by County (per year selected above)</h2>
+                  <div class="row">
+                    <div class="col-sml-6">
+                      <div class="well">
+                        <div class="col-md-5">
+                          <div id="bar"></div>
+                        </div>
+                        <h5>table of Countries and medal count (bar chart?) :</h5>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </section>
+          </div>
+        <!-- End of container -->
         </div>
-        <!-- left side end -->
-        <!-- rigth side -->
-        <div class="col-md-6">
-        <section id="imageNav-area">
-          <h2 class="imageNav-header">Visualizations</h2>
-          <div class="row">
-            <div class="col-sml-6">
-              <div class="well">
-                <h5>Choose the Olympic Games by Year:</h5>
-                <select id="selDataset" onchange="optionChanged(this.value)"></select>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- end of rigth side -->
-      </div>
-      <br>
-      <div class="col-md-12">
-        <section id="imageNav-area">
-          <h2 class="imageNav-header">Display Total Medal Count by County (per year selected above)</h2>
-          <div class="row">
-            <div class="col-sml-6">
-              <div class="well">
-                <h5>table of Countries and medal count (bar chart?) :</h5>
-              </div>
-            </div>
-          </div>
-        </section>
-
-    </section>
+      </section>
     </div>
-  
     <!-- End of container -->
-
     <!-- Start of footer -->
     <footer class="footer navbar-fixed-bottom">
       <div class="two-toned-footer-color"></div>
@@ -200,22 +174,13 @@
       </p>
     </footer>
     <!-- End of footer -->
-
     <!-- jQuery CDN -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-
     <!-- Bootstrap CDN -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  
-
-    <!-- jQuery CDN -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-
-    <!-- Bootstrap CDN -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script type="text/javascript" src="static/js/logic.js"></script>
+    <script type="text/selDataset" src="static/js/apptest.js"></script>
 </body>
 </html>
-
-
