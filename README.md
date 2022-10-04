@@ -35,15 +35,21 @@
 
 ## Tasks Completed
 ### World Map
-
+<p>The world map is located on the landing page showcasing all the markers for host cities throughout the history of the Olympics</p>
+	
 ### Interactive Data
+<p> There are two interactive data visuals on the landing page. One visual is a bar chart that represents the top 10 medal counts based on the year the user selects. The other is a line graph that represents the countries medal counts over the history of the Olympics.</p>
 
 ### Athletes Demographic Information
-	
-### Flask Application with Data
 
-### Style/HTML/CSS
-
+### Technologies used to build the Olympics Webpage:
+```
+- App Back-End: Python Flask | SQLAlchemy
+- Database: MySQL 
+- Data Visualization: Javascript | Plotly.js | D3.js 
+- Front-End: HTML | Bootstrap | CSS
+- Web-Scraping: Requests
+```
 ## Our Inspiration
 <p>To help inspire our creative fodder, we referenced some visualizations that would help with the roadmap of how we wanted our project to flow. Here are some of the visualizations we found to guide in the process:</p>
 <img src="/Images/sports_qualify.png">
