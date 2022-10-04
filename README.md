@@ -12,7 +12,7 @@
     - Weight (kg) 
 * What sports were part of the Olympics throughout history
 * Which countries won the most medals(gold, silver, and bronze) 
-* Amongst others as we dive deeper into the data
+* What were the medal counts of all countries over time
 
 ## Resources
 * <p><a href="https://github.com/OmodonMajiri/R-We-There-Yet-To-the-Olympics ">GitHub Repository</a></p>
