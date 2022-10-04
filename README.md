@@ -1,4 +1,5 @@
 <img src="working_dir/Images/olympicsfinalphoto_0.png">
+
 # From Athens to Beijing: Visualizing the World's Greatest Athletes
 ## Project Rationale
 <p> We decided to pick a project that would showcase the global history of countries worldwide, coming together to one location, and having some good friendly competitions during the Summer and Winter Olympic Games. Our goal is to visualize some patterns throughout the Olympic Games history. Some of the patterns presented are as follows: </p>
