@@ -60,6 +60,6 @@
 
 ## Transformation Process
 ### Data Merging
-<p> For this table, we combined both 120 Years of Complete Olympic History and the Olympic Host Cities data into one dataset where you can find <a href="olympics_data.csv">here</a>.</p>
+<p> For this table, we combined both 120 Years of Complete Olympic History and the Olympic Host Cities data into one dataset where you can find <a href="working_dir/olympics_data.csv">here</a>.</p>
 
 <p> After merging the data, we analyzed it, and the following issues were identified:</p>
