@@ -173,11 +173,11 @@ def all_athlete_demographic():
         athlete_sex.append(athlete_sex_dict)
     return jsonify(athlete_sex)
 
-@app.route("/api/v1.0/funfacttest")
+@app.route("/funfacttest")
 def funfacttest():
     return render_template('funfacttest.html')
 
-@app.route("/api/v1.0/tableData")
+@app.route("/tableData")
 def tableData():
     return render_template('tableData.html')
 
