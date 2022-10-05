@@ -154,6 +154,34 @@ def athlete_sex(sex, year):
         athlete_sex.append(athlete_sex_dict)
     return jsonify(athlete_sex)
 
+
+@app.route("/api/v1.0/athlete/demographic")
+def all_athlete_demographic():
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+    results = session.query(Athlete.name, Athlete.sex, Athlete.age, Athlete.height, Athlete.weight, Athlete.medal, Athlete.noc_country).distinct(Athlete.name)
+    athlete_sex = []
+    for name, sex, age, height, weight, medal, country in results:
+        athlete_sex_dict = {}
+        athlete_sex_dict["name"] = name
+        athlete_sex_dict["sex"] = sex
+        athlete_sex_dict["age"] = age
+        athlete_sex_dict["height"] = height
+        athlete_sex_dict["weight"] = weight
+        athlete_sex_dict["medal"] = medal
+        athlete_sex_dict["country"] = country
+        athlete_sex.append(athlete_sex_dict)
+    return jsonify(athlete_sex)
+
+@app.route("/api/v1.0/funfacttest")
+def funfacttest():
+    return render_template('funfacttest.html')
+
+@app.route("/api/v1.0/tableData")
+def tableData():
+    return render_template('tableData.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 

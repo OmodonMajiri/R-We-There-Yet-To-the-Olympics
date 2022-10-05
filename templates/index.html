@@ -45,9 +45,9 @@
                     <li><a href="https://www.kaggle.com/datasets/jonscheaffer/olympic-host-cities">Olympic Host Cities</a></li>
                    </ul>
               </li>
-              <li><a href="funfacts.html">Fun Facts</a></li>
-              <li><a href="tableData.html">Data</a></li>
-              <li><a href="index.html">Home</a></li>
+              <li><a href="api/v1.0/funfacttest">Fun Facts</a></li>
+              <li><a href="api/v1.0/tableData">Data</a></li>
+              <li><a href="api/v1.0/index">Home</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div>
@@ -196,11 +196,15 @@
             <div class="row">
               <div class="col-sml-6">
                 <div class="well">
-                  <div id="demographics"></div>
-                  <h5>Athletes info: sex, age, country, ... :</h5>
+                   <h5>Athletes info: sex, age, country, ... :</h5>
+                    <div class="panel panel-primary">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Demographic Info</h3>
+                      </div>
+                      <div id="sample-metadata" class="panel-body"></div>
+                    </div>
                 </div>
               </div>
-            </div>
           </section>
         </div>
         </div>
@@ -224,7 +228,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script type="text/javascript" src="static/js/logic.js"></script>
-    <script type="text/selDataset" src="static/js/apptest.js"></script>
+    <script type="text/javascript" src="static/js/apptest.js"></script>
   </body>
 </html>
     
