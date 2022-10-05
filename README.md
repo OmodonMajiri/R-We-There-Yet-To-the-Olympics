@@ -50,6 +50,8 @@
 	
 ### Fun Facts about the Olympics
 <p>In addition to the data we displayed, we also were able to obtain some interesting facts about the Olympics that maybe not many people knew.</p>
+<p>You can find the first website we used <a href="https://www.ef.edu/blog/language/24-facts-about-the-olympics/">here</a>.</p>
+<p>You can find the second website we used <a href="https://champions-speakers.co.uk/news/14-cool-facts-about-olympics-you-might-not-know">here</a>.</p>
 
 ## Observations
 <p>Through our data analysis and our visualizations, we observed that _________ </p>
@@ -57,7 +59,7 @@
 ## Technologies used to build the Olympics Webpage:
 ```
 - Database: MySQL 
-- Data Visualization: Javascript | Plotly.js | D3.js 
+- Data Visualization: Javascript | Plotly.js | D3.js | Highcharts
 - Front-End: HTML | Bootstrap | CSS
 - Back-End: Python Flask | SQLAlchemy
 ```
