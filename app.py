@@ -29,8 +29,8 @@ app = Flask(__name__)
 # Flask Routes
 #################################################
 
-@app.route("/")
-def welcome():
+@app.route("/index")
+def index():
     return render_template('index.html')
 
 @app.route("/api/v1.0/athlete")
