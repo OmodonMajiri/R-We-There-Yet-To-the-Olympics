@@ -178,37 +178,37 @@
             <div class="row">
               <div class="col-sml-6">
                 <div class="well">
-                   <h5>Athletes info: sex, age, country, ... :</h5>
-                    <div class="panel panel-primary">
-                      <div class="panel-heading">
-                        <h3 class="panel-title">Demographic Info</h3>
-                      </div>
-                      <div id="sample-metadata" class="panel-body"></div>
-                    </div>
+                  <div id="demographics"></div>
+                  <!--<div id="sample-metadata" class="panel-body"></div>-->
                 </div>
               </div>
+            </div>
           </section>
         </div>
         <div class="col-md-12">
           <section id="imageNav-area">
-            <h2 class="imageNav-header">Display Country Data</h2>
-            <select id="selCountry" onchange="countryOptionChange(this.value)"></select>
-              <div class="row">
-                <div class="col-sml-6">
-                  <div class="well">
-                    <h5>County info: ... :</h5>
-                    <figure class="highcharts-figure">
-                       <div id="container"></div>
-                      <p class="highcharts-description">
+            <h2 class="imageNav-header">Medals per Country over the Years</h2>
+            <div class="well">
+              <h5>Choose the Country:</h5>
+              <select id="selDatasetLineChart" onchange="optionChanged1(this.value)"></select>
+            </div>
+​            <div class="row">
+              <div class="col-sml-6">
+                <div class="well">
+                  <figure class="highcharts-figure">
+                    <div id="container"></div>
+                    <p class="highcharts-description">
+                        Basic line chart showing trends in a dataset. This chart includes the
+                        <code>series-label</code> module, which adds a label to each line for
+                        enhanced readability.
+                    </p>
                   </figure>
-                  </div>
                 </div>
               </div>
+            </div>
           </section>
         </div>
-      <hr>
-      <div class="row"></div>
-      <hr>
+        </div>
       </section>
     </div>
     
@@ -230,6 +230,7 @@
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script type="text/javascript" src="static/js/logic.js"></script>
     <script type="text/javascript" src="static/js/apptest.js"></script>
+    
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
