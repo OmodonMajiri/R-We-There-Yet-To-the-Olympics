@@ -127,7 +127,7 @@
                       var row = data[i];
                       var marker = L.marker([row.host_city_lat, row.host_city_lng], {
                         opacity: 1
-                      }).bindPopup(`<h5>${row.city} : ${row.games} </h5>`);
+                      }).bindPopup(`<h5><b>${row.city}</b> : ${row.games} </h5>`);
                       marker.addTo(map);
                     }
                   });
