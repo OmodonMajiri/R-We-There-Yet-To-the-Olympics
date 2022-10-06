@@ -39,7 +39,7 @@ games,city,host_city_lat,host_city_lng
 1908 Summer,London,51.5084153,-0.1255327
 1928 Summer,Amsterdam,52.3075,4.9722219
 1972 Winter,Sapporo,43.0547222,141.3538818
-1980 Winter,Lake Placid,27.2931,-81.362846
+1980 Winter,Lake Placid,44.282345, -73.993774
 1984 Winter,Sarajevo,43.85,18.3833332
 1968 Summer,Mexico City,19.4341667,-99.1386108
 1936 Winter,Garmisch-Partenkirchen,47.49209,11.09576
@@ -48,5 +48,5 @@ games,city,host_city_lat,host_city_lng
 1976 Winter,Innsbruck,47.2666667,11.3999996
 1964 Winter,Innsbruck,47.2666667,11.3999996
 1948 Winter,St. Moritz,46.4908,9.8355
-1932 Winter,Lake Placid,27.2931,-81.362846
+1932 Winter,Lake Placid,44.282345, -73.993774
 1896 Summer,Athens,37.9833333,23.7333336

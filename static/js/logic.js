@@ -89,7 +89,7 @@ function initialize(){
      
 }
 
-url = '/api/v1.0/country/total_medals_years/' + 'Virgin Islands'
+url = '/api/v1.0/country/total_medals_years/' + 'Afghanistan'
     d3.json(url).then((data) => {
         // create arrays of years and medals here
         console.log("COUNTRY TOTAL DATA")
