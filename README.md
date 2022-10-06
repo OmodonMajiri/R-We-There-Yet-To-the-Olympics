@@ -6,12 +6,15 @@
 
 * How many athletes and nations participated throughout the history of the Olympics 
 * What were the demographics of the athletes:
-    - ID - Unique number for each athlete 
-    - Name
+    - Name 
+    - Age
+    - Country
+    - Medal
+    - Year
     - Sex
-    - Age 
     - Height (cm) 
     - Weight (kg) 
+    
 * What sports were part of the Olympics throughout history
 * Which countries won the most medals(gold, silver, and bronze) 
 * What were the medal counts of all countries over time
@@ -23,30 +26,29 @@
   	- <a href="https://www.kaggle.com/datasets/jonscheaffer/olympic-host-cities">Olympic Host Cities</a>
  
 ## Group Members
-* Vedrana Basimamovic
-* Stephen Jackson
-* Hee Oh
-* Bob Pickerel
 * Andres Almarez
-* Leon Lee
+* Vedrana Basimamovic
 * Gary Groscost
 * Brian Hall
-* Michael Damas
-* Vinika Patel
+* Stephen Jackson
 * Colleen Kearns
+* Leon Lee
+* Hee Oh
+* Vinika Patel
+* Bob Pickerel
 
 ## Home Page
 ### World Map
 <p>The world map is located on the landing page showcasing all the markers for host cities throughout the history of the Olympics using the Carto and Color Terrain basemap based on Leaflet, JSON, and JS. If you hover over the marker, you will see the year that specific city hosted either the Summer or Winter Olympics.</p>
-<img src="________">
+<img src="working_dir/Images/pptmap.png">
 
 ### Interactive Data
 <p> There are two interactive data visuals on the landing page. One visual is a bar chart that represents the top 10 medal counts based on the year the user selects. The other is a line graph that represents the countries medal counts over the history of the Olympics.</p>
-<img src="________", width="450"/> <img src="________", width="450"/>
+<img src="working_dir/Images/pptbarchart.png", width="450"/> <img src="working_dir/Images/pptmedals.png", width="450"/>
 
 ### Demographics of the Athletes
 <p>In addition to the interactive data, we also included the demographics of all athletes that participated in the Olympics. We included their name, age, height, weight, where they were from, what sport they participated in, and the medal (if any) they won.</p>
-<img src="________">
+<img src="working_dir/Images/pptdemographics.png">
 	
 ### Fun Facts about the Olympics
 <p>In addition to the data we displayed, we also were able to obtain some interesting facts about the Olympics that maybe not many people knew.</p>
