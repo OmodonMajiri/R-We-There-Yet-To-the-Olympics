@@ -81,7 +81,7 @@
 <p> For this table, we combined both 120 Years of Complete Olympic History and the Olympic Host Cities data into one dataset where you can find <a href="working_dir/olympics_data.csv">here</a>.</p>
 <p>We were able to successfully combine the data and were well on our way to using this data to create our website. Interesting fact, we noticed after we merged the data, there were 498 distinct "countries" that participated in the Olympics, a lot of them going by different names to represent a country.</p>
 
-### Challenges
+## Challenges
 <p> Througout the project, there were a few stumbling blocks that we came upon. Some include the following but is not limited to:</p>
 	
 * Using Flask to serve up our data and realizing that Flask requires a primary key for a connection to the Postgres database.
