@@ -140,7 +140,6 @@ def athlete_demographic(year):
         athlete_sex.append(athlete_sex_dict)
     return jsonify(athlete_sex)
 
-
 @app.route("/api/v1.0/athlete/demographic")
 def all_athlete_demographic():
     # Create our session (link) from Python to the DB

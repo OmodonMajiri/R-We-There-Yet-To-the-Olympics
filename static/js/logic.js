@@ -84,6 +84,8 @@ function initialize(){
          console.log(firstSample);
          buildBarChart(firstSample);
      });
+
+     
      
 }
 
@@ -246,6 +248,8 @@ function countryOptionChange(country)
         
         });
      });
+
+
 
 }
 // function that updates the dashboard
