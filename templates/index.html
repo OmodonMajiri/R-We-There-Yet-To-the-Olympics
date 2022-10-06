@@ -190,14 +190,19 @@
             <h2 class="imageNav-header">Medals per Country over the Years</h2>
             <div class="well">
               <h5>Choose the Country:</h5>
-              <select id="selDatasetLineChart" onchange="optionChanged1(this.value)"></select>
+              <figure class="highcharts-figure">
+                <select id="selCountry" onchange="countryOptionChange(this.value)"></select>
+
+              </figure>
             </div>
-​            <div class="row">
-              <div class="col-sml-6">
-                <div class="well">
+              <div class="row">
+                <div class="col-sml-6">
+                  <div class="well">
                   <figure class="highcharts-figure">
                     <div id="container"></div>
                     <p class="highcharts-description">
+                      <div id="container"></div>
+                      <p class="highcharts-description">
                         Basic line chart showing trends in a dataset. This chart includes the
                         <code>series-label</code> module, which adds a label to each line for
                         enhanced readability.
@@ -230,7 +235,7 @@
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script type="text/javascript" src="static/js/logic.js"></script>
     <script type="text/javascript" src="static/js/apptest.js"></script>
-    
+
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>

@@ -190,7 +190,6 @@ def country_medal_year(noc_country):
         countries.append(countries_dict)
     return jsonify(countries)
 
-
 if __name__ == '__main__':
     app.run(debug=True)
 
