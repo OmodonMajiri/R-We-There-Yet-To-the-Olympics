@@ -52,7 +52,7 @@
 <img src="working_dir/Images/pptbarchart.png", width="400"/> <img src="working_dir/Images/pptmedals.png", width="400"/>
 
 ### Demographics of the Athletes
-<p>In addition to the interactive data, we also included the demographics of all athletes that participated in the Olympics. We included their age, country, height, medal, name, sex, weight, and year they participated.</p>
+<p>In addition to the interactive data, we also included the demographics of all athletes that participated in the Olympics. The demographics include their age, country, height, medal, name, sex, weight, and year they participated.</p>
 <img src="working_dir/Images/pptdemographics.png">
 	
 ### Fun Facts about the Olympics
