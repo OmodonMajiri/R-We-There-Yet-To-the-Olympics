@@ -28,6 +28,7 @@
 ## Group Members
 * Andres Almarez
 * Vedrana Basimamovic
+* Michael Damas
 * Gary Groscost
 * Brian Hall
 * Stephen Jackson
@@ -38,6 +39,10 @@
 * Bob Pickerel
 
 ## Home Page
+### Landing Page
+<p>Below, you can see the layout of our landing page which is comprised of our map, a drop down for selecting the year of the Olympics, and a display of total medal counts, athelete demographics, and medal counts of countries by year.</p>
+<img src="working_dir/Images/landing_page.png">
+	
 ### World Map
 <p>The world map is located on the landing page showcasing all the markers for host cities throughout the history of the Olympics using the Carto and Color Terrain basemap based on Leaflet, JSON, and JS. If you hover over the marker, you will see the year that specific city hosted either the Summer or Winter Olympics.</p>
 <img src="working_dir/Images/pptmap.png">
@@ -52,11 +57,9 @@
 	
 ### Fun Facts about the Olympics
 <p>In addition to the data we displayed, we also were able to obtain some interesting facts about the Olympics that maybe not many people knew.</p>
+<img src="working_dir/Images/fun_facts.png">
 <p>You can find the first website we used <a href="https://www.ef.edu/blog/language/24-facts-about-the-olympics/">here</a>.</p>
 <p>You can find the second website we used <a href="https://champions-speakers.co.uk/news/14-cool-facts-about-olympics-you-might-not-know">here</a>.</p>
-
-## Observations
-<p>Through our data analysis and our visualizations, we observed that _________ </p>
 
 ## Technologies used to build the Olympics Webpage:
 ```
@@ -78,3 +81,9 @@
 <p> For this table, we combined both 120 Years of Complete Olympic History and the Olympic Host Cities data into one dataset where you can find <a href="working_dir/olympics_data.csv">here</a>.</p>
 <p>We were able to successfully combine the data and were well on our way to using this data to create our website. Interesting fact, we noticed after we merged the data, there were 498 distinct "countries" that participated in the Olympics, a lot of them going by different names to represent a country.</p>
 
+## Challenges
+<p> Througout the project, there were a few stumbling blocks that we came upon. Some include the following but is not limited to:</p>
+	
+* Using Flask to serve up our data and realizing that Flask requires a primary key for a connection to the Postgres database.
+* Using a rendered template in Flask as we needed to run the app V.S. using Visual Studio to run a live server.
+* Staying coordinated and organized while working on the code because there were so many people. It was difficult to work on codes separately and come together to merge them.
