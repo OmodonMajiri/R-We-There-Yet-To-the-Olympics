@@ -74,7 +74,7 @@
 
 <img src="working_dir/Images/sports_qualify.png" width="300"/> <img src="working_dir/Images/medal_count.png" width="300"/> <img src="working_dir/Images/medal_rings.png" width="355" height="250"/>
 	
-<p>All images were downloaded from <a href="https://mediashift.org/2016/08/5-data-stories-olympic-games/">5 Data Stories You Can Tell about the Olympic Games</a></p>.
+<p>All images were downloaded from <a href="https://mediashift.org/2016/08/5-data-stories-olympic-games/">5 Data Stories You Can Tell about the Olympic Games</a></p>
 
 ## Transformation Process
 ### Data Merging
