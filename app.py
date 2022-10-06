@@ -124,6 +124,7 @@ def country_medal(year):
         countries.append(countries_dict)
     return jsonify(countries)
 
+
 @app.route("/api/v1.0/athlete/demographic/<year>")
 def athlete_demographic(year):
     # Create our session (link) from Python to the DB
@@ -139,29 +140,14 @@ def athlete_demographic(year):
         athlete_sex.append(athlete_sex_dict)
     return jsonify(athlete_sex)
 
-@app.route("/api/v1.0/athlete/<sex>/demographic/<year>")
-def athlete_sex(sex, year):
-    # Create our session (link) from Python to the DB
-    session = Session(engine)
-    results = session.query(Athlete.sex, Athlete.age, Athlete.height, Athlete.weight).filter(Athlete.year == year).filter(Athlete.sex == sex).all()
-    athlete_sex = []
-    for sex, age, height, weight in results:
-        athlete_sex_dict = {}
-        athlete_sex_dict["sex"] = sex
-        athlete_sex_dict["age"] = age
-        athlete_sex_dict["height"] = height
-        athlete_sex_dict["weight"] = weight
-        athlete_sex.append(athlete_sex_dict)
-    return jsonify(athlete_sex)
-
 
 @app.route("/api/v1.0/athlete/demographic")
 def all_athlete_demographic():
     # Create our session (link) from Python to the DB
     session = Session(engine)
-    results = session.query(Athlete.name, Athlete.sex, Athlete.age, Athlete.height, Athlete.weight, Athlete.medal, Athlete.noc_country).distinct(Athlete.name)
+    results = session.query(Athlete.name, Athlete.sex, Athlete.age, Athlete.height, Athlete.weight, Athlete.medal, Athlete.noc_country, Athlete.year).distinct(Athlete.name)
     athlete_sex = []
-    for name, sex, age, height, weight, medal, country in results:
+    for name, sex, age, height, weight, medal, country, year in results:
         athlete_sex_dict = {}
         athlete_sex_dict["name"] = name
         athlete_sex_dict["sex"] = sex
@@ -170,6 +156,7 @@ def all_athlete_demographic():
         athlete_sex_dict["weight"] = weight
         athlete_sex_dict["medal"] = medal
         athlete_sex_dict["country"] = country
+        athlete_sex_dict["year"] = year
         athlete_sex.append(athlete_sex_dict)
     return jsonify(athlete_sex)
 

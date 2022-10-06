@@ -1,6 +1,8 @@
 // load new medal total over time chart for selected country
 function countryOptionChange(country)
 {
+
+
     url = '/api/v1.0/country/total_medals_years/' + country
     d3.json(url).then((data) => {
         // grab all of the sample data then create arrays of years and medals here
@@ -213,8 +215,12 @@ function buildBarChart(sample)
         Plotly.newPlot("bar", [barChart], layout);
     });
 }
+
+
 // initialize dashboard
-function initialize(){
+function initialize()
+
+{
     //drop down selector
     var select = d3.select("#selDataset");
     d3.json("/api/v1.0/years").then((data) => {
@@ -230,6 +236,37 @@ function initialize(){
          console.log(firstSample);
          buildBarChart(firstSample);
      });
+
+         //drop down selector
+    var selectAthlete = d3.select("#athletesDataset");
+    d3.json("/api/v1.0/athlete/demographic").then((data1) => {
+        let athleteName = data1; //array of name
+        console.log(athleteName);
+        //use a for each to create options
+        athleteName.forEach((name) => {
+            //console.log(name);
+            selectAthlete.append("option")
+                .text(name.name)
+                .property("value", name.name);
+         });
+         let athleteSample = athleteName[0].name;
+         console.log(athleteSample);
+         
+         buildMetaData(athleteSample)         
+​
+     });
+
+     var selectC = d3.select("#selCountry");
+     d3.json("/api/v1.0/countries").then((data) => {
+         let countryNames = data; //array of events
+         //console.log(eventNames);
+         //use a for each to create options
+         countryNames.forEach((country) => {
+             selectC.append("option")
+                 .text(country)
+                 .property("value", country);
+         });
+     });
 }
 // function that updates the dashboard
 function optionChanged(item)
@@ -239,6 +276,17 @@ function optionChanged(item)
     buildBarChart(item);
     //buildBubbleChart(item);
 }
+
+function athleteChanged()
+{
+    // d3.json("/api/v1.0/athlete/demographic").then((data) => {
+        let dropdown = d3.select("#athletesDataset");
+        let dataset = dropdown.property("value");
+        console.log(dataset)
+        buildMetaData(dataset);
+    // }
+}
+
 initialize();
 //d3.json('/api/v1.0/athlete').then(function (response){
 //    console.log(response)
