@@ -30,8 +30,10 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <div class="col-xs-9 phone-nav">
-              <a class="navbar-brand" href="index" id="logo">Olympic Games Data</a>
+            <div class="col-sml-10 phone-nav">
+              <a class="navbar-brand" href="/" id="logo">Olympic Games Data</a>
+              <img align="middle" src="static/assets/images/olympic_flag.gif" style="width: 5%">
+              <img src="static/assets/images/flags.png"  style="width: 40%" align="bottom" ><img align="middle" src="static/assets/images/olympic_flag.gif" style="width: 5%">
             </div>
           </div>
 
@@ -39,7 +41,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right navbar-right-custom">
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Sources <span class="caret"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Sources <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results">120 Years of Complete Olympic History</a></li>
                     <li><a href="https://www.kaggle.com/datasets/jonscheaffer/olympic-host-cities">Olympic Host Cities</a></li>
@@ -50,7 +52,7 @@
               </li>
               <li><a href="funfacts">Fun Facts</a></li>
               <li><a href="tableData">Data</a></li>
-              <li><a href="index">Home</a></li>
+              <li><a href="/">Home</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div>
@@ -72,9 +74,8 @@
             <!-- <img src="assets/images/Fig1.png" alt="Latitude vs. Temperature" width="280" align="left"> -->
             <p> We will have to put code to show map </p>
 
-            <div>
-              <head>
-                <title>leaflet-map-csv</title>
+            <div class="well">
+                <title>Olympic Dashboard</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <meta charset="utf-8">
               
@@ -92,72 +93,68 @@
                   #map { position: absolute; top:0; bottom:0; right:0; left:0; }
                 </style>
               
-              </head>
-              <body>
+              
               
                 <!-- Insert HTML division tag to layout the map -->
-                <div id="map"></div>
-              
-                <!-- Insert Javascript (.js) code to create the map -->
-                <script>
-              
-                // Set up initial map center and zoom level
-                var map = L.map('map', {
-                  center: [45, 15], // EDIT latitude, longitude to re-center map
-                  zoom: 1.25,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
-                  scrollWheelZoom: true,
-                  tap: false
-                });
-              
-                /* Control panel to display map layers */
-                var controlLayers = L.control.layers( null, null, {
-                  position: "topright",
-                  collapsed: false
-                }).addTo(map);
-              
-                // display Carto basemap tiles with light features and labels
-                var light = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
-                }).addTo(map); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
-                controlLayers.addBaseLayer(light, 'Light basemap');
-              
-                /* Stamen colored terrain basemap tiles with labels */
-                var terrain = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png', {
-                  attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
-                }); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
-                controlLayers.addBaseLayer(terrain, 'Terrain basemap');
-              
-                // see more basemap options at https://leaflet-extras.github.io/leaflet-providers/preview/
-              
-                // Read markers data from data.csv
-                $.get('static/csv/host.csv', function(csvString) {
-              
-                  // Use PapaParse to convert string to array of objects
-                  var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-              
-                  // For each row in data, create a marker and add it to the map
-                  // For each row, columns `Latitude`, `Longitude`, and `Title` are required
-                  for (var i in data) {
-                    var row = data[i];
-              
-                    var marker = L.marker([row.host_city_lat, row.host_city_lng], {
-                      opacity: 1
-                    }).bindPopup(`<h5>${row.games} : ${row.city} </h5>`);
-                    
-                    marker.addTo(map);
-                  }
-              
-                });
-              
-                map.attributionControl.setPrefix(
-                  'View <a href="https://github.com/HandsOnDataViz/leaflet-map-csv" target="_blank">code on GitHub</a>'
-                );
-              
-                </script>
-
-
-
-            </div>
+                <div id="map">
+             
+                  <!-- Insert Javascript (.js) code to create the map -->
+                  <script>
+                
+                    // Set up initial map center and zoom level
+                    var map = L.map('map', {
+                      center: [45, 15], // EDIT latitude, longitude to re-center map
+                      zoom: 1.25,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
+                      scrollWheelZoom: true,
+                      tap: false
+                    });
+                  
+                    /* Control panel to display map layers */
+                    var controlLayers = L.control.layers( null, null, {
+                      position: "topright",
+                      collapsed: false
+                    }).addTo(map);
+                  
+                    // display Carto basemap tiles with light features and labels
+                    var light = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
+                    }).addTo(map); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
+                    controlLayers.addBaseLayer(light, 'Light basemap');
+                  
+                    /* Stamen colored terrain basemap tiles with labels */
+                    var terrain = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png', {
+                      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+                    }); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
+                    controlLayers.addBaseLayer(terrain, 'Terrain basemap');
+                  
+                    // see more basemap options at https://leaflet-extras.github.io/leaflet-providers/preview/
+                  
+                    // Read markers data from data.csv
+                    $.get('static/csv/host.csv', function(csvString) {
+                  
+                      // Use PapaParse to convert string to array of objects
+                      var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+                  
+                      // For each row in data, create a marker and add it to the map
+                      // For each row, columns `Latitude`, `Longitude`, and `Title` are required
+                      for (var i in data) {
+                        var row = data[i];
+                  
+                        var marker = L.marker([row.host_city_lat, row.host_city_lng], {
+                          opacity: 1
+                        }).bindPopup(`<h5>${row.games} : ${row.city} </h5>`);
+                        
+                        marker.addTo(map);
+                      }
+                  
+                    });
+                  
+                    map.attributionControl.setPrefix(
+                      'View <a href="https://github.com/HandsOnDataViz/leaflet-map-csv" target="_blank">code on GitHub</a>'
+                    );
+                  
+                  </script>
+                </div>
          </article>
         </div>
         <!-- left side end -->
@@ -210,6 +207,18 @@
               </div>
           </section>
         </div>
+        <div class="row">
+          <div class="col-sml-6">
+            <div class="well">
+              <figure class="highcharts-figure">
+                <select id="selCountry" onchange="countryOptionChange(this.value)"></select>
+                <div id="container"></div>
+                <p class="highcharts-description">
+            </figure>
+            </div>
+          </div>
+        </div>
+
         </div>
       </section>
     </div>
@@ -220,7 +229,7 @@
     <footer class="footer navbar-fixed-bottom">
       <div class="two-toned-footer-color"></div>
       <p class="text-muted text-muted-footer text-center">
-        <b>&copy; Copyright The Data Olympians 2022</b>
+        <b>&copy; Copyright <a href="https://github.com/OmodonMajiri/R-We-There-Yet-To-the-Olympics"> The Data Olympians 2022</a></b>
       </p>
     </footer>
     <!-- End of footer -->
@@ -232,6 +241,11 @@
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script type="text/javascript" src="static/js/logic.js"></script>
     <script type="text/javascript" src="static/js/apptest.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
   </body>
 </html>
     

@@ -29,7 +29,7 @@ app = Flask(__name__)
 # Flask Routes
 #################################################
 
-@app.route("/index")
+@app.route("/")
 def index():
     return render_template('index.html')
 
