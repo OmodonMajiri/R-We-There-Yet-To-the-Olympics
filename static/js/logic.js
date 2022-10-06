@@ -1,3 +1,168 @@
+// load new medal total over time chart for selected country
+function countryOptionChange(country)
+{
+    url = '/api/v1.0/country/total_medals_years/' + country
+    d3.json(url).then((data) => {
+        // grab all of the sample data then create arrays of years and medals here
+        let sampleData = data;
+        countryName = sampleData[0].country
+        //console.log(`APICALL`,sampleData);
+        let years = [];
+        let medals = [];
+        for(var i = 0; i < sampleData.length; i++)
+        {
+            //console.log(sampleData[i].total_medals)
+            medals.push(sampleData[i].total_medals)
+            years.push(sampleData[i].year)
+        }
+        Highcharts.chart('container', {
+
+            title: {
+                text: 'Total Medals Won'
+            },
+        
+            subtitle: {
+                text: ''
+            },
+        
+            yAxis: {
+                title: {
+                    text: 'Number Of Medals'
+                }
+            },
+        
+            xAxis: {
+                
+                categories: years,
+        
+                accessibility: {
+                    rangeDescription: 'Range: 1896 to 2016'
+                }
+            },
+        
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+        
+            plotOptions: {
+                series: {
+                    label: {
+                        connectorAllowed: false
+                    },
+                    // pointStart: 1896
+                }
+            },
+        
+            series: [{
+                name: countryName,
+                data: medals
+            }],
+        
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom'
+                        }
+                    }
+                }]
+            }
+        
+        });
+     });
+
+}
+url = '/api/v1.0/country/total_medals_years/' + 'Virgin Islands'
+    d3.json(url).then((data) => {
+        // create arrays of years and medals here
+        console.log("COUNTRY TOTAL DATA")
+        
+        // grab all of the sample data
+        let sampleData = data;
+        countryName = sampleData[0].country
+        //console.log(`APICALL`,sampleData);
+        let years = [];
+        let medals = [];
+        for(var i = 0; i < sampleData.length; i++)
+        {
+            //console.log(sampleData[i].total_medals)
+            medals.push(sampleData[i].total_medals)
+            years.push(sampleData[i].year)
+        }
+        Highcharts.chart('container', {
+
+            title: {
+                text: 'Total Medals Won'
+            },
+        
+            subtitle: {
+                text: ''
+            },
+        
+            yAxis: {
+                title: {
+                    text: 'Number Of Medals'
+                }
+            },
+        
+            xAxis: {
+                
+                categories: years,
+        
+                accessibility: {
+                    rangeDescription: 'Range: 1896 to 2016'
+                }
+            },
+        
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+        
+            plotOptions: {
+                series: {
+                    label: {
+                        connectorAllowed: false
+                    },
+                    // pointStart: 1896
+                }
+            },
+        
+            series: [{
+                name: countryName,
+                data: medals
+            }],
+        
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom'
+                        }
+                    }
+                }]
+            }
+        
+        });
+     });
+
+
+
+
+
 // function that builds the bar chart
 function buildBarChart(sample)
 {

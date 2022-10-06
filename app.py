@@ -181,6 +181,28 @@ def funfacts():
 def tableData():
     return render_template('tableData.html')
 
+@app.route("/api/v1.0/countries")
+def countries():
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+    results = session.query(Athlete.noc_country).distinct()
+    years = [r.noc_country for r in results]
+    return jsonify(years)
+
+@app.route("/api/v1.0/country/total_medals_years/<noc_country>")
+def country_medal_year(noc_country):
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+    results = session.query(Athlete.noc_country, func.count(Athlete.noc_country), Athlete.year).filter(Athlete.noc_country == noc_country).group_by(Athlete.noc_country).group_by(Athlete.year).all()
+    countries = []
+    for country, medal_count, year in results:
+        countries_dict = {}
+        countries_dict["country"] = country
+        countries_dict["total_medals"] = medal_count
+        countries_dict["year"] = year
+        countries.append(countries_dict)
+    return jsonify(countries)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
