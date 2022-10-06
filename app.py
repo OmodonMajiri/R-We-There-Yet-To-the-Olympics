@@ -7,7 +7,7 @@ from flask import Flask, jsonify, request, render_template
 # Database Setup
 #################################################
 
-engine = create_engine("postgresql://postgres:sqladmin@localhost/olympics")
+engine = create_engine("postgresql://postgres:password@localhost/olympics")
 
 # reflect an existing database into a new model
 Base = automap_base()
@@ -171,7 +171,7 @@ def tableData():
 def countries():
     # Create our session (link) from Python to the DB
     session = Session(engine)
-    results = session.query(Athlete.noc_country).distinct()
+    results = session.query(Athlete.noc_country).order_by((Athlete.noc_country)).distinct()
     years = [r.noc_country for r in results]
     return jsonify(years)
 
@@ -179,7 +179,7 @@ def countries():
 def country_medal_year(noc_country):
     # Create our session (link) from Python to the DB
     session = Session(engine)
-    results = session.query(Athlete.noc_country, func.count(Athlete.noc_country), Athlete.year).filter(Athlete.noc_country == noc_country).group_by(Athlete.noc_country).group_by(Athlete.year).all()
+    results = session.query(Athlete.noc_country, func.count(Athlete.noc_country), Athlete.year).filter(Athlete.noc_country == noc_country).group_by(Athlete.noc_country).group_by(Athlete.year).order_by((Athlete.year)).all()
     countries = []
     for country, medal_count, year in results:
         countries_dict = {}
