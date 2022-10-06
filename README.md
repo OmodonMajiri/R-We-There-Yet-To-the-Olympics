@@ -44,7 +44,7 @@
 
 ### Interactive Data
 <p> There are two interactive data visuals on the landing page. One visual is a bar chart that represents the top 10 medal counts based on the year the user selects. The other is a line graph that represents the countries medal counts over the history of the Olympics.</p>
-<img src="working_dir/Images/pptbarchart.png", width="450"/> <img src="working_dir/Images/pptmedals.png", width="450"/>
+<img src="working_dir/Images/pptbarchart.png", width="400"/> <img src="working_dir/Images/pptmedals.png", width="400"/>
 
 ### Demographics of the Athletes
 <p>In addition to the interactive data, we also included the demographics of all athletes that participated in the Olympics. We included their name, age, height, weight, what sport they participated in, and the medal (if any) they won.</p>
