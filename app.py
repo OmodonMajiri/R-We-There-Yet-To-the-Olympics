@@ -144,9 +144,9 @@ def athlete_demographic(year):
 def all_athlete_demographic():
     # Create our session (link) from Python to the DB
     session = Session(engine)
-    results = session.query(Athlete.name, Athlete.sex, Athlete.age, Athlete.height, Athlete.weight, Athlete.medal, Athlete.noc_country, Athlete.year).distinct(Athlete.name)
+    results = session.query(Athlete.name, Athlete.sex, Athlete.age, Athlete.height, Athlete.weight, Athlete.medal, Athlete.noc_country, Athlete.year, Athlete.sport).distinct(Athlete.name)
     athlete_sex = []
-    for name, sex, age, height, weight, medal, country, year in results:
+    for name, sex, age, height, weight, medal, country, year, sport in results:
         athlete_sex_dict = {}
         athlete_sex_dict["name"] = name
         athlete_sex_dict["sex"] = sex
@@ -156,6 +156,7 @@ def all_athlete_demographic():
         athlete_sex_dict["medal"] = medal
         athlete_sex_dict["country"] = country
         athlete_sex_dict["year"] = year
+        athlete_sex_dict["sport"] = sport
         athlete_sex.append(athlete_sex_dict)
     return jsonify(athlete_sex)
 
